@@ -27,8 +27,8 @@ public class MyMetaObjecthandler implements MetaObjectHandler {
         Date currentTime = new Date();
         metaObject.setValue("createTime", currentTime);
         metaObject.setValue("updateTime",currentTime);
-        metaObject.setValue("createUser",new Long(1));
-        metaObject.setValue("updateUser",new Long(1));
+        metaObject.setValue("createUser",BaseContext.getCurrentId());
+        metaObject.setValue("updateUser",BaseContext.getCurrentId());
     }
 
     /**
@@ -40,7 +40,8 @@ public class MyMetaObjecthandler implements MetaObjectHandler {
         log.info("公共字段自动填充[update]...");
         log.info(metaObject.toString());
         Date currentTime = new Date();
+        log.info("id未" + BaseContext.getCurrentId());
         metaObject.setValue("updateTime",currentTime);
-        metaObject.setValue("updateUser",new Long(1));
+        metaObject.setValue("updateUser",BaseContext.getCurrentId());
     }
 }
